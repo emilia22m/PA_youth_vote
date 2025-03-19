@@ -1,80 +1,91 @@
 var wms_layers = [];
 
-var format_SchoolDistricts_0 = new ol.format.GeoJSON();
-var features_SchoolDistricts_0 = format_SchoolDistricts_0.readFeatures(json_SchoolDistricts_0, 
+
+        var lyr_OSMStandard_0 = new ol.layer.Tile({
+            'title': 'OSM Standard',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
+            attributions: ' &nbsp &middot; <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+                url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
+            })
+        });
+var format_SchoolDistricts_1 = new ol.format.GeoJSON();
+var features_SchoolDistricts_1 = format_SchoolDistricts_1.readFeatures(json_SchoolDistricts_1, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_SchoolDistricts_0 = new ol.source.Vector({
+var jsonSource_SchoolDistricts_1 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_SchoolDistricts_0.addFeatures(features_SchoolDistricts_0);
-var lyr_SchoolDistricts_0 = new ol.layer.Vector({
+jsonSource_SchoolDistricts_1.addFeatures(features_SchoolDistricts_1);
+var lyr_SchoolDistricts_1 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_SchoolDistricts_0, 
-                style: style_SchoolDistricts_0,
+                source:jsonSource_SchoolDistricts_1, 
+                style: style_SchoolDistricts_1,
                 popuplayertitle: 'School Districts',
                 interactive: true,
-                title: '<img src="styles/legend/SchoolDistricts_0.png" /> School Districts'
+                title: '<img src="styles/legend/SchoolDistricts_1.png" /> School Districts'
             });
-var format_PAHouse_1 = new ol.format.GeoJSON();
-var features_PAHouse_1 = format_PAHouse_1.readFeatures(json_PAHouse_1, 
+var format_PAHouse_2 = new ol.format.GeoJSON();
+var features_PAHouse_2 = format_PAHouse_2.readFeatures(json_PAHouse_2, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_PAHouse_1 = new ol.source.Vector({
+var jsonSource_PAHouse_2 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_PAHouse_1.addFeatures(features_PAHouse_1);
-var lyr_PAHouse_1 = new ol.layer.Vector({
+jsonSource_PAHouse_2.addFeatures(features_PAHouse_2);
+var lyr_PAHouse_2 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_PAHouse_1, 
-                style: style_PAHouse_1,
+                source:jsonSource_PAHouse_2, 
+                style: style_PAHouse_2,
                 popuplayertitle: 'PA House',
                 interactive: true,
-                title: '<img src="styles/legend/PAHouse_1.png" /> PA House'
+                title: '<img src="styles/legend/PAHouse_2.png" /> PA House'
             });
-var format_PASenate_2 = new ol.format.GeoJSON();
-var features_PASenate_2 = format_PASenate_2.readFeatures(json_PASenate_2, 
+var format_PASenate_3 = new ol.format.GeoJSON();
+var features_PASenate_3 = format_PASenate_3.readFeatures(json_PASenate_3, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_PASenate_2 = new ol.source.Vector({
+var jsonSource_PASenate_3 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_PASenate_2.addFeatures(features_PASenate_2);
-var lyr_PASenate_2 = new ol.layer.Vector({
+jsonSource_PASenate_3.addFeatures(features_PASenate_3);
+var lyr_PASenate_3 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_PASenate_2, 
-                style: style_PASenate_2,
+                source:jsonSource_PASenate_3, 
+                style: style_PASenate_3,
                 popuplayertitle: 'PA Senate',
-                interactive: false,
-                title: '<img src="styles/legend/PASenate_2.png" /> PA Senate'
+                interactive: true,
+                title: '<img src="styles/legend/PASenate_3.png" /> PA Senate'
             });
-var format_USCongress_3 = new ol.format.GeoJSON();
-var features_USCongress_3 = format_USCongress_3.readFeatures(json_USCongress_3, 
+var format_USHouse_4 = new ol.format.GeoJSON();
+var features_USHouse_4 = format_USHouse_4.readFeatures(json_USHouse_4, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_USCongress_3 = new ol.source.Vector({
+var jsonSource_USHouse_4 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_USCongress_3.addFeatures(features_USCongress_3);
-var lyr_USCongress_3 = new ol.layer.Vector({
+jsonSource_USHouse_4.addFeatures(features_USHouse_4);
+var lyr_USHouse_4 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_USCongress_3, 
-                style: style_USCongress_3,
-                popuplayertitle: 'US Congress',
-                interactive: false,
-                title: '<img src="styles/legend/USCongress_3.png" /> US Congress'
+                source:jsonSource_USHouse_4, 
+                style: style_USHouse_4,
+                popuplayertitle: 'US House',
+                interactive: true,
+                title: '<img src="styles/legend/USHouse_4.png" /> US House'
             });
 
-lyr_SchoolDistricts_0.setVisible(true);lyr_PAHouse_1.setVisible(true);lyr_PASenate_2.setVisible(true);lyr_USCongress_3.setVisible(true);
-var layersList = [lyr_SchoolDistricts_0,lyr_PAHouse_1,lyr_PASenate_2,lyr_USCongress_3];
-lyr_SchoolDistricts_0.set('fieldAliases', {'MSLINK': 'MSLINK', 'SCHOOL_DIS': 'SCHOOL_DIS', 'AREA': 'AREA', 'SCHOOL_NAM': 'SCHOOL_NAM', 'GPID': 'GPID', 'AVTS_SENDI': 'AVTS_SENDI', 'AUN_NUM': 'AUN_NUM', 'IU_NAME': 'IU_NAME', 'LEN': 'LEN', 'AVTS': 'AVTS', 'AUN_SCHDIS': 'AUN_SCHDIS', 'Shape_Leng': 'Shape_Leng', 'IU_NUM': 'IU_NUM', 'PA_CTY_COD': 'PA_CTY_COD', 'CTY_NAME': 'CTY_NAME', 'ID': 'ID', });
-lyr_PAHouse_1.set('fieldAliases', {'MSLINK': 'MSLINK', 'H_FIRSTNAM': 'H_FIRSTNAM', 'AREA': 'AREA', 'URL': 'URL', 'H_LASTNAME': 'H_LASTNAME', 'LEN': 'LEN', 'GPID': 'GPID', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'LEG_DISTRI': 'LEG_DISTRI', });
-lyr_PASenate_2.set('fieldAliases', {'MSLINK': 'MSLINK', 'AREA': 'AREA', 'URL': 'URL', 'S_LASTNAME': 'S_LASTNAME', 'LEN': 'LEN', 'GPID': 'GPID', 'S_FIRSTNAM': 'S_FIRSTNAM', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'LEG_DISTRI': 'LEG_DISTRI', });
-lyr_USCongress_3.set('fieldAliases', {'MSLINK': 'MSLINK', 'AREA': 'AREA', 'URL': 'URL', 'LEN': 'LEN', 'GPID': 'GPID', 'C_FIRSTNAM': 'C_FIRSTNAM', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'C_LASTNAME': 'C_LASTNAME', 'LEG_DISTRI': 'LEG_DISTRI', });
-lyr_SchoolDistricts_0.set('fieldImages', {'MSLINK': 'Hidden', 'SCHOOL_DIS': 'TextEdit', 'AREA': 'Hidden', 'SCHOOL_NAM': 'Hidden', 'GPID': 'Hidden', 'AVTS_SENDI': 'Hidden', 'AUN_NUM': 'Hidden', 'IU_NAME': 'Hidden', 'LEN': 'Hidden', 'AVTS': 'Hidden', 'AUN_SCHDIS': 'Hidden', 'Shape_Leng': 'Hidden', 'IU_NUM': 'Hidden', 'PA_CTY_COD': 'Hidden', 'CTY_NAME': 'Hidden', 'ID': 'Range', });
-lyr_PAHouse_1.set('fieldImages', {'MSLINK': 'Range', 'H_FIRSTNAM': 'TextEdit', 'AREA': 'TextEdit', 'URL': 'TextEdit', 'H_LASTNAME': 'TextEdit', 'LEN': 'TextEdit', 'GPID': 'Range', 'HOME_COUNT': 'TextEdit', 'Shape_Leng': 'TextEdit', 'PARTY': 'TextEdit', 'LEG_DISTRI': 'Range', });
-lyr_PASenate_2.set('fieldImages', {'MSLINK': 'Range', 'AREA': 'TextEdit', 'URL': 'TextEdit', 'S_LASTNAME': 'TextEdit', 'LEN': 'TextEdit', 'GPID': 'Range', 'S_FIRSTNAM': 'TextEdit', 'HOME_COUNT': 'TextEdit', 'Shape_Leng': 'TextEdit', 'PARTY': 'TextEdit', 'LEG_DISTRI': 'Range', });
-lyr_USCongress_3.set('fieldImages', {'MSLINK': 'Range', 'AREA': 'TextEdit', 'URL': 'TextEdit', 'LEN': 'TextEdit', 'GPID': 'Range', 'C_FIRSTNAM': 'TextEdit', 'HOME_COUNT': 'TextEdit', 'Shape_Leng': 'TextEdit', 'PARTY': 'TextEdit', 'C_LASTNAME': 'TextEdit', 'LEG_DISTRI': 'Range', });
-lyr_SchoolDistricts_0.set('fieldLabels', {'SCHOOL_DIS': 'header label - always visible', 'ID': 'no label', });
-lyr_PAHouse_1.set('fieldLabels', {'MSLINK': 'no label', 'H_FIRSTNAM': 'no label', 'AREA': 'no label', 'URL': 'no label', 'H_LASTNAME': 'no label', 'LEN': 'no label', 'GPID': 'no label', 'HOME_COUNT': 'no label', 'Shape_Leng': 'no label', 'PARTY': 'no label', 'LEG_DISTRI': 'no label', });
-lyr_PASenate_2.set('fieldLabels', {'MSLINK': 'no label', 'AREA': 'no label', 'URL': 'no label', 'S_LASTNAME': 'no label', 'LEN': 'no label', 'GPID': 'no label', 'S_FIRSTNAM': 'no label', 'HOME_COUNT': 'no label', 'Shape_Leng': 'no label', 'PARTY': 'no label', 'LEG_DISTRI': 'no label', });
-lyr_USCongress_3.set('fieldLabels', {'MSLINK': 'no label', 'AREA': 'no label', 'URL': 'no label', 'LEN': 'no label', 'GPID': 'no label', 'C_FIRSTNAM': 'no label', 'HOME_COUNT': 'no label', 'Shape_Leng': 'no label', 'PARTY': 'no label', 'C_LASTNAME': 'no label', 'LEG_DISTRI': 'no label', });
-lyr_USCongress_3.on('precompose', function(evt) {
+lyr_OSMStandard_0.setVisible(true);lyr_SchoolDistricts_1.setVisible(true);lyr_PAHouse_2.setVisible(true);lyr_PASenate_3.setVisible(true);lyr_USHouse_4.setVisible(true);
+var layersList = [lyr_OSMStandard_0,lyr_SchoolDistricts_1,lyr_PAHouse_2,lyr_PASenate_3,lyr_USHouse_4];
+lyr_SchoolDistricts_1.set('fieldAliases', {'MSLINK': 'MSLINK', 'SCHOOL_DIS': 'School District', 'AREA': 'AREA', 'SCHOOL_NAM': 'SCHOOL_NAM', 'GPID': 'GPID', 'AVTS_SENDI': 'AVTS_SENDI', 'AUN_NUM': 'AUN_NUM', 'IU_NAME': 'IU_NAME', 'LEN': 'LEN', 'AVTS': 'AVTS', 'AUN_SCHDIS': 'AUN_SCHDIS', 'Shape_Leng': 'Shape_Leng', 'IU_NUM': 'IU_NUM', 'PA_CTY_COD': 'PA_CTY_COD', 'CTY_NAME': 'CTY_NAME', 'ID': 'District', 'School District': 'School District', });
+lyr_PAHouse_2.set('fieldAliases', {'MSLINK': 'MSLINK', 'H_FIRSTNAM': 'H_FIRSTNAM', 'AREA': 'AREA', 'URL': 'URL', 'H_LASTNAME': 'H_LASTNAME', 'LEN': 'LEN', 'GPID': 'GPID', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'LEG_DISTRI': 'District', 'Rep Last Name': 'Rep Last Name', 'Web page': 'Web page', });
+lyr_PASenate_3.set('fieldAliases', {'MSLINK': 'MSLINK', 'AREA': 'AREA', 'URL': 'URL', 'S_LASTNAME': 'S_LASTNAME', 'LEN': 'LEN', 'GPID': 'GPID', 'S_FIRSTNAM': 'S_FIRSTNAM', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'LEG_DISTRI': 'District', 'Sen Last Name': 'Sen Last Name', 'Web page': 'Web page', });
+lyr_USHouse_4.set('fieldAliases', {'MSLINK': 'MSLINK', 'AREA': 'AREA', 'URL': 'URL', 'LEN': 'LEN', 'GPID': 'GPID', 'C_FIRSTNAM': 'C_FIRSTNAM', 'HOME_COUNT': 'HOME_COUNT', 'Shape_Leng': 'Shape_Leng', 'PARTY': 'PARTY', 'C_LASTNAME': 'C_LASTNAME', 'LEG_DISTRI': 'District', 'Rep Last Name': 'Rep Last Name', 'Webpage': 'Webpage', 'Web page': 'Web page', });
+lyr_SchoolDistricts_1.set('fieldImages', {'MSLINK': 'Hidden', 'SCHOOL_DIS': 'Hidden', 'AREA': 'Hidden', 'SCHOOL_NAM': 'Hidden', 'GPID': 'Hidden', 'AVTS_SENDI': 'Hidden', 'AUN_NUM': 'Hidden', 'IU_NAME': 'Hidden', 'LEN': 'Hidden', 'AVTS': 'Hidden', 'AUN_SCHDIS': 'Hidden', 'Shape_Leng': 'Hidden', 'IU_NUM': 'Hidden', 'PA_CTY_COD': 'Hidden', 'CTY_NAME': 'Hidden', 'ID': 'TextEdit', 'School District': 'TextEdit', });
+lyr_PAHouse_2.set('fieldImages', {'MSLINK': 'Hidden', 'H_FIRSTNAM': 'Hidden', 'AREA': 'Hidden', 'URL': 'Hidden', 'H_LASTNAME': 'Hidden', 'LEN': 'Hidden', 'GPID': 'Hidden', 'HOME_COUNT': 'Hidden', 'Shape_Leng': 'Hidden', 'PARTY': 'Hidden', 'LEG_DISTRI': 'Range', 'Rep Last Name': 'TextEdit', 'Web page': 'TextEdit', });
+lyr_PASenate_3.set('fieldImages', {'MSLINK': 'Hidden', 'AREA': 'Hidden', 'URL': 'Hidden', 'S_LASTNAME': 'Hidden', 'LEN': 'Hidden', 'GPID': 'Hidden', 'S_FIRSTNAM': 'Hidden', 'HOME_COUNT': 'Hidden', 'Shape_Leng': 'Hidden', 'PARTY': 'Hidden', 'LEG_DISTRI': 'Range', 'Sen Last Name': 'TextEdit', 'Web page': 'TextEdit', });
+lyr_USHouse_4.set('fieldImages', {'MSLINK': 'Hidden', 'AREA': 'Hidden', 'URL': 'Hidden', 'LEN': 'Hidden', 'GPID': 'Hidden', 'C_FIRSTNAM': 'Hidden', 'HOME_COUNT': 'Hidden', 'Shape_Leng': 'Hidden', 'PARTY': 'Hidden', 'C_LASTNAME': 'Hidden', 'LEG_DISTRI': 'Range', 'Rep Last Name': 'TextEdit', 'Webpage': 'TextEdit', 'Web page': 'TextEdit', });
+lyr_SchoolDistricts_1.set('fieldLabels', {'ID': 'no label', 'School District': 'no label', });
+lyr_PAHouse_2.set('fieldLabels', {'LEG_DISTRI': 'inline label - visible with data', 'Rep Last Name': 'no label', 'Web page': 'no label', });
+lyr_PASenate_3.set('fieldLabels', {'LEG_DISTRI': 'inline label - visible with data', 'Sen Last Name': 'no label', 'Web page': 'no label', });
+lyr_USHouse_4.set('fieldLabels', {'LEG_DISTRI': 'inline label - visible with data', 'Rep Last Name': 'no label', 'Webpage': 'hidden field', 'Web page': 'no label', });
+lyr_USHouse_4.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
