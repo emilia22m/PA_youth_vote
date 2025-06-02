@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_PAHouse_9 = function(feature, resolution){
+var style_PASenate_9 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -9,8 +9,8 @@ var style_PAHouse_9 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "19.5px \'Open Sans\', sans-serif";
-    var labelFill = "#323232";
+    var labelFont = "10px, sans-serif";
+    var labelFill = "#000000";
     var bufferColor = "";
     var bufferWidth = 0;
     var textAlign = "left";
@@ -21,7 +21,7 @@ var style_PAHouse_9 = function(feature, resolution){
         labelText = String("");
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(227,26,28,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 1.9}),fill: new ol.style.Fill({color: 'rgba(247,251,255,0.0)'}),
+        stroke: new ol.style.Stroke({color: 'rgba(31,120,180,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 1.9}),fill: new ol.style.Fill({color: 'rgba(55,126,184,0.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
