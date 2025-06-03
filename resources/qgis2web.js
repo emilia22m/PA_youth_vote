@@ -4,12 +4,42 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-        extent: [-9028886.237483, 4610933.120150, -8280115.404150, 5473474.786817], maxZoom: 15, minZoom: 1
+        extent: [-9119836.758317, 4530235.203483, -8178581.549983, 5392776.870150], maxZoom: 15, minZoom: 1
     })
 });
 
+//*Make map Zoom to user geolocation 
+if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var userLon = position.coords.longitude;
+        var userLat = position.coords.latitude;
+        var userLocation = ol.proj.fromLonLat([userLon, userLat]);
+
+        // Zoom to user location
+        map.getView().setCenter(userLocation);
+        map.getView().setZoom(15);
+
+        // Optional: Add a marker for user's location
+        var userFeature = new ol.Feature(new ol.geom.Point(userLocation));
+        var userLayer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: [userFeature]
+            }),
+            style: new ol.style.Style({
+                image: new ol.style.Circle({
+                    radius: 6,
+                    fill: new ol.style.Fill({color: 'red'}),
+                    stroke: new ol.style.Stroke({color: '#fff', width: 2})
+                })
+            })
+        });
+        map.addLayer(userLayer);
+    });
+}
+// *End map Zoom addition
+
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-9028886.237483, 4610933.120150, -8280115.404150, 5473474.786817], map.getSize());
+map.getView().fit([-9119836.758317, 4530235.203483, -8178581.549983, 5392776.870150], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -264,7 +294,7 @@ function onPointerMove(evt) {
                 } else {
                     highlightStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
-                            color: 'rgba(255,255,0,0.1)'// make highlight color transparent, changed from '#ffff00'
+                            color: 'rgba(255,255,0,0.1)' // *make highlight color transparent, changed from '#ffff00'
                         })
                     })
                 }
@@ -547,12 +577,12 @@ var searchLayer = new SearchLayer({
     layer: lyr_SchoolDistrict_1,
     colName: 'SCHOOL_DIS',
     zoom: 10,
-    collapsed: false, // make search box open, changed from true
+    collapsed: false, // *make search box open, changed from true
     map: map
 });
 map.addControl(searchLayer);
 document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
-document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search School District ...'; // make text in search box more descriptive
+document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search School District ...'; // *make text in search box more descriptive
     
 
 //scalebar
