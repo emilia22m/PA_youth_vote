@@ -8,35 +8,6 @@ var map = new ol.Map({
     })
 });
 
-//*Make map Zoom to user geolocation 
-if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        var userLon = position.coords.longitude;
-        var userLat = position.coords.latitude;
-        var userLocation = ol.proj.fromLonLat([userLon, userLat]);
-
-        // Zoom to user location
-        map.getView().setCenter(userLocation);
-        map.getView().setZoom(15);
-
-        // Optional: Add a marker for user's location
-        var userFeature = new ol.Feature(new ol.geom.Point(userLocation));
-        var userLayer = new ol.layer.Vector({
-            source: new ol.source.Vector({
-                features: [userFeature]
-            }),
-            style: new ol.style.Style({
-                image: new ol.style.Circle({
-                    radius: 6,
-                    fill: new ol.style.Fill({color: 'red'}),
-                    stroke: new ol.style.Stroke({color: '#fff', width: 2})
-                })
-            })
-        });
-        map.addLayer(userLayer);
-    });
-}
-// *End map Zoom addition
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
 map.getView().fit([-9119836.758317, 4530235.203483, -8178581.549983, 5392776.870150], map.getSize());
