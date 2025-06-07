@@ -8,7 +8,6 @@ var map = new ol.Map({
     })
 });
 
-
 //initial view - epsg:3857 coordinates if not "Match project CRS"
 map.getView().fit([-9119836.758317, 4530235.203483, -8178581.549983, 5392776.870150], map.getSize());
 
@@ -266,6 +265,7 @@ function onPointerMove(evt) {
                     highlightStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
                             color: 'rgba(255,255,0,0.1)' // *make highlight color transparent, changed from '#ffff00'
+
                         })
                     })
                 }
@@ -553,7 +553,7 @@ var searchLayer = new SearchLayer({
 });
 map.addControl(searchLayer);
 document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
-document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search School District ...'; // *make text in search box more descriptive
+document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search School District ...';
     
 
 //scalebar
